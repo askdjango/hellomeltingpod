@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
@@ -29,6 +29,8 @@ class CommentCreateView(CreateView):
 
 comment_new = login_required(CommentCreateView.as_view())
 
+
+comment_edit = login_required(UpdateView.as_view(model=Comment, form_class=CommentForm))
 
 
 
