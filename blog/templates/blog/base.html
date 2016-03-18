@@ -37,5 +37,21 @@ body {
     {% block content %}
     {% endblock %}
 
+    <hr/>
+    {% if user.is_authenticated %}
+      {{ user }}
+      <a href="{% url "logout" %}?next=/">로그아웃</a>
+    {% else %}
+      <a href="{% url "login" %}">로그인</a>
+    {% endif %}
+
 </body>
 </html>
+
+
+
+
+
+
+
+

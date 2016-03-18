@@ -10,8 +10,20 @@
 
             {{ post.content|linebreaks }}
 
+            <h4>Comments</h4>
+
+            <ul>
+            {% for comment in post.comment_set.all %}
+                <li>
+                    {{ comment.message }}
+                    by {{ comment.author }}
+                </li>
+            {% endfor %}
+            </ul>
+
             <hr/>
             <a href="{% url "blog:post_list" %}" class="btn btn-primary">목록으로</a>
+            <a href="{% url "blog:comment_new" post.pk %}" class="btn btn-primary">댓글달기</a>
         </div>
     </div>
 </div>
