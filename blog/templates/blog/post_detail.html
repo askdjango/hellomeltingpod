@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>{{ post.title }}</h1>
+
+            <p><img src="{{ post.photo.url }}" /></p>
+
+            {{ post.content|linebreaks }}
+
+            <hr/>
+            <a href="{% url "blog:post_list" %}" class="btn btn-primary">목록으로</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
