@@ -18,11 +18,10 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 def hello(request):
-    return HttpResponse('''
-        <h1>Hello, <a href="http://facebook.com/askdjango/" target="_blank">AskDjango</a></h1>
-    ''')
+    return redirect('blog:post_list')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
